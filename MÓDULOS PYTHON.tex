@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+
+\usepackage{gensymb}
+
+\usepackage[utf8]{inputenc}
+
+
+\title{MÓDULOS PYTHON}
+
+\author{Clerisvaldo Holanda dos Santos Junior}
+
+\date{}
+
+
+
+\begin{document}
+
+
+
+\maketitle
+
+
+As atividades a seguir foram feitas a fim de mostrar funções de alguns módulos do python como \textbf{\textit{Numpy}}, \textbf{\textit{Scipy}}, \textbf{\textit{Timeit}} e \textbf{\textit{Matplotlib}}, e compará-las com uma forma equivalente programada no \textit{python} para alguns tipos de problemas.
+
+
+
+\section{Sistema de Equações Lineares}
+
+
+
+A priori, foi importado os módulos e definida a função do método de resolução por \textit{Gauss-Seidel}. Após isso, foi implementado ao código uma geração de \textit{matriz 20x20} aleatória de forma que ela fosse \textit{estritamente diagonal dominante}.
+
+
+
+A partir daí, foi utilizada a função \textit{Gauss-Seidel}, onde são dados os valores das matrizes com os coeficientes e resultados das equações e ela retorna os valores das variáveis em uma matriz. E para a forma de resolução utilizando o \textbf{Numpy} foi utilizada a função \textit{np.linalg.solve()}, onde são utilizados os mesmos argumentos da função programada e também retorna os valores das variáveis como uma matriz.
+
+
+
+Finalmente, foi possível comparar os dois métodos utilizados e ver que a função direta do \textbf{Numpy} foi demasiadamente rápida em relação ao método programado no \textit{python} e com uma diferença de precisão insignificante.
+
+
+
+\section{Interpolação}
+
+
+
+Não foi possível concluir.
+
+
+
+\section{Ajustes}
+
+
+
+Para esta atividade, primeiro foi importado os módulos, definida uma função que determinava um\textit{ polinômio de até 4\degree{} grau} que recebe o valor de x e seus coeficientes em ordem decrescente.
+
+
+
+Após isso, foram criados \textit{pontos} utilizando a função definida acima, adicionada a um valor denominado ruído, o qual adiciona um valor ao retornado pela função, e que após isso foram plotado esses pontos.
+
+Para a forma programada no \textit{python} para o \textit{método dos mínimos quadrados}, foi utilizada a relação a seguir:
+
+
+
+\[ g=A \cdot B \longrightarrow B= \left[ A^{T} \cdot A \right] ^{-1} \cdot A^{T} \cdot g \]
+
+
+
+onde g são os valores de y dos pontos, A é a matriz com os valores atribuídos de x para uma função de 4\degree{}distribuída em colunas, e B a matriz de coeficientes.
+
+
+
+Para a forma utilizando o módulo \textbf{Scipy}, foi utilizada a função \textit{curve\underline{ }fit()}, retornando os valores para os coeficientes também em uma matriz.
+
+
+
+Ao final disso, foram plotados os gráficos para as duas formas de resoluções e foi percebido que quando adicionado o ruído os polinômios eram idênticos, e ao retirar este, os polinômios divergiam de maneira irrelevante. Além disso, foi possível observar também que o tempo de duração da forma de resolução programada no \textit{python} foi mais rápida que a forma de resolução utilizando o \textbf{Scipy}.
+
+
+
+\section{Integração e Diferenciação}
+
+
+
+Primeiramente foi feita a importação dos módulos, definida uma função de sexto grau e uma função para o cálculo da integral pelo método do trapézio. Esta função consiste em:
+
+
+
+\begin{enumerate}
+
+\item Receber os valores de x, y e o número de intervalos;
+
+\item Cria um vetor com índices nulos do tamanho do número de intervalos subtraindo 1;
+
+\item Calcula a área de cada trapézio formado;
+
+\item Retorna o somatório das áreas calculadas anteriormente armazenadas no vetor.
+
+\end{enumerate}
+
+
+
+Como valor real para a integral, foi utilizada a função \textit{integrate.quad()} do \textbf{Scipy} que tinha uma precisão de \textit{1e-5}. Após isso foi feito um estudo de valores variando o tamanho do intervalo, e quanto menor o tamanho do intervalo, mais a integral numérica convergia para o valor analítico com um porém; quando utilizado a função descrita anteriormente, o tempo para cálculo da integral aumentava proporcionalmente ao número de intervalos, enquanto a função \textit{integrate.trapz()} para o mesmo método utilizando o \textbf{Scipy} mostrava pouca variação no tempo com o aumento do número de intervalos.
+
+
+
+Foi feita uma tabela mostrando os dados obtidos e um gráfico mostrando a variação do tempo em função do número de intervalos.
+
+
+
+\end{document}
